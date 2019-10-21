@@ -1,0 +1,49 @@
+    import java.util.Locale;
+    import java.util.Scanner;
+
+    public class Main {
+
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+            scanner.useLocale(Locale.US);
+            double puzzle = 2.60;
+            double doll = 3.00;
+            double bear = 4.10;
+            double minion = 8.20;
+            double truck = 2.00;
+            double holiday = scanner.nextDouble();
+            double bpuzzle = scanner.nextDouble();
+            double bdoll = scanner.nextDouble();
+            double bbear = scanner.nextDouble();
+            double bminion = scanner.nextDouble();
+            double btruck = scanner.nextDouble();
+            double igrachki = bpuzzle + bdoll + bbear + bminion + btruck;
+            double pari = (puzzle * bpuzzle) + (doll * bdoll) + (bear * bbear) + (minion * bminion) + (truck * btruck);
+            if (igrachki > 50) {
+                double otstupka = (pari * 0.75) * 0.90;
+                if (otstupka > holiday) {
+                    //System.out.println("Yes! " + (otstupka - holiday) + " lv left.");
+                    double yes1 = otstupka - holiday;
+                    System.out.printf("Yes! %.2f lv left.", yes1);
+                }
+                else {
+                    double no1 = holiday - otstupka;
+                    System.out.printf("Not enough money! %.2f lv needed.", no1);
+                    //System.out.println("Not enough money! " + (holiday - otstupka) + " lv needed.");
+                }
+            }
+            else if (igrachki < 50) {
+                double pari2 = pari * 0.90;
+                if (pari2 > holiday) {
+                    //System.out.println("Yes! " + (pari - holiday) + " lv left.");
+                    double yes2 = pari2 - holiday;
+                    System.out.printf("Yes! %.2f lv left.", yes2);
+                }
+                else {
+                    //System.out.println("Not enough money! " + (holiday - pari) + " lv needed.");
+                    double no2 = holiday - pari2;
+                    System.out.printf("Not enough money! %.2f lv needed.", no2);
+                }
+            }
+        }
+    }
